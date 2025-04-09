@@ -1,5 +1,4 @@
-`default_nettype none
-`timescale 1ns/1ns
+`default_nettype none `timescale 1ns / 1ns
 
 // COMPUTE CORE
 // > Handles processing 1 block at a time
@@ -16,7 +15,7 @@ module core #(
     input wire reset,
 
     // Kernel Execution
-    input wire start,
+    input  wire start,
     output wire done,
 
     // Block Metadata
@@ -31,12 +30,12 @@ module core #(
 
     // Data Memory
     output reg [THREADS_PER_BLOCK-1:0] data_mem_read_valid,
-    output reg [DATA_MEM_ADDR_BITS-1:0] data_mem_read_address [THREADS_PER_BLOCK-1:0],
+    output reg [DATA_MEM_ADDR_BITS-1:0] data_mem_read_address[THREADS_PER_BLOCK-1:0],
     input reg [THREADS_PER_BLOCK-1:0] data_mem_read_ready,
-    input reg [DATA_MEM_DATA_BITS-1:0] data_mem_read_data [THREADS_PER_BLOCK-1:0],
+    input reg [DATA_MEM_DATA_BITS-1:0] data_mem_read_data[THREADS_PER_BLOCK-1:0],
     output reg [THREADS_PER_BLOCK-1:0] data_mem_write_valid,
-    output reg [DATA_MEM_ADDR_BITS-1:0] data_mem_write_address [THREADS_PER_BLOCK-1:0],
-    output reg [DATA_MEM_DATA_BITS-1:0] data_mem_write_data [THREADS_PER_BLOCK-1:0],
+    output reg [DATA_MEM_ADDR_BITS-1:0] data_mem_write_address[THREADS_PER_BLOCK-1:0],
+    output reg [DATA_MEM_DATA_BITS-1:0] data_mem_write_data[THREADS_PER_BLOCK-1:0],
     input reg [THREADS_PER_BLOCK-1:0] data_mem_write_ready
 );
     // State
@@ -52,7 +51,7 @@ module core #(
     reg [1:0] lsu_state[THREADS_PER_BLOCK-1:0];
     reg [7:0] lsu_out[THREADS_PER_BLOCK-1:0];
     wire [7:0] alu_out[THREADS_PER_BLOCK-1:0];
-    
+
     // Decoded Instruction Signals
     reg [3:0] decoded_rd_address;
     reg [3:0] decoded_rs_address;
@@ -61,14 +60,14 @@ module core #(
     reg [7:0] decoded_immediate;
 
     // Decoded Control Signals
-    reg decoded_reg_write_enable;           // Enable writing to a register
-    reg decoded_mem_read_enable;            // Enable reading from memory
-    reg decoded_mem_write_enable;           // Enable writing to memory
-    reg decoded_nzp_write_enable;           // Enable writing to NZP register
-    reg [1:0] decoded_reg_input_mux;        // Select input to register
-    reg [1:0] decoded_alu_arithmetic_mux;   // Select arithmetic operation
-    reg decoded_alu_output_mux;             // Select operation in ALU
-    reg decoded_pc_mux;                     // Select source of next PC
+    reg decoded_reg_write_enable;  // Enable writing to a register
+    reg decoded_mem_read_enable;  // Enable reading from memory
+    reg decoded_mem_write_enable;  // Enable writing to memory
+    reg decoded_nzp_write_enable;  // Enable writing to NZP register
+    reg [1:0] decoded_reg_input_mux;  // Select input to register
+    reg [1:0] decoded_alu_arithmetic_mux;  // Select arithmetic operation
+    reg decoded_alu_output_mux;  // Select operation in ALU
+    reg decoded_pc_mux;  // Select source of next PC
     reg decoded_ret;
 
     // Fetcher
@@ -85,7 +84,7 @@ module core #(
         .mem_read_ready(program_mem_read_ready),
         .mem_read_data(program_mem_read_data),
         .fetcher_state(fetcher_state),
-        .instruction(instruction) 
+        .instruction(instruction)
     );
 
     // Decoder

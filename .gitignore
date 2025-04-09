@@ -3,6 +3,8 @@ build/
 test/logs/*
 !.gitkeep
 gds/**/*.gltf
+test/assembler/*
+!test/assembler/assembler.py
 
 .DS_Store
 results.xml

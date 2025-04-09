@@ -1,5 +1,4 @@
-`default_nettype none
-`timescale 1ns/1ns
+`default_nettype none `timescale 1ns / 1ns
 
 // LOAD-STORE UNIT
 // > Handles asynchronous memory load and store operations and waits for response
@@ -48,15 +47,15 @@ module lsu (
             mem_write_data <= 0;
         end else if (enable) begin
             // If memory read enable is triggered (LDR instruction)
-            if (decoded_mem_read_enable) begin 
+            if (decoded_mem_read_enable) begin
                 case (lsu_state)
                     IDLE: begin
                         // Only read when core_state = REQUEST
-                        if (core_state == 3'b011) begin 
+                        if (core_state == 3'b011) begin
                             lsu_state <= REQUESTING;
                         end
                     end
-                    REQUESTING: begin 
+                    REQUESTING: begin
                         mem_read_valid <= 1;
                         mem_read_address <= rs;
                         lsu_state <= WAITING;
@@ -68,9 +67,9 @@ module lsu (
                             lsu_state <= DONE;
                         end
                     end
-                    DONE: begin 
+                    DONE: begin
                         // Reset when core_state = UPDATE
-                        if (core_state == 3'b110) begin 
+                        if (core_state == 3'b110) begin
                             lsu_state <= IDLE;
                         end
                     end
@@ -78,15 +77,15 @@ module lsu (
             end
 
             // If memory write enable is triggered (STR instruction)
-            if (decoded_mem_write_enable) begin 
+            if (decoded_mem_write_enable) begin
                 case (lsu_state)
                     IDLE: begin
                         // Only read when core_state = REQUEST
-                        if (core_state == 3'b011) begin 
+                        if (core_state == 3'b011) begin
                             lsu_state <= REQUESTING;
                         end
                     end
-                    REQUESTING: begin 
+                    REQUESTING: begin
                         mem_write_valid <= 1;
                         mem_write_address <= rs;
                         mem_write_data <= rt;
@@ -98,9 +97,9 @@ module lsu (
                             lsu_state <= DONE;
                         end
                     end
-                    DONE: begin 
+                    DONE: begin
                         // Reset when core_state = UPDATE
-                        if (core_state == 3'b110) begin 
+                        if (core_state == 3'b110) begin
                             lsu_state <= IDLE;
                         end
                     end
