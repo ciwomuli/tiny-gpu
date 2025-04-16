@@ -213,4 +213,9 @@ module gpu #(
             );
         end
     endgenerate
+
+    initial begin
+        $dumpfile("dump.vcd");
+        $dumpvars(0, gpu);
+    end
 endmodule

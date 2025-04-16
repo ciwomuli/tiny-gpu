@@ -1,0 +1,149 @@
+{
+  "extensionVersion": "1.3.2",
+  "fileName": "/Users/ciwomuli/Documents/postgraduate/tiny-gpu/dump.vcd",
+  "markerTime": null,
+  "altMarkerTime": null,
+  "selectedSignal": {
+    "name": "gpu.cores[0].core_instance.threads[3].alu_instance.rt",
+    "numberFormat": "hexadecimal",
+    "msb": 7,
+    "lsb": 0
+  },
+  "zoomRatio": 0.0002,
+  "scrollLeft": 281,
+  "displayedSignals": [
+    {
+      "netlistId": 197,
+      "name": "gpu.cores[0].core_instance.threads[0].pc_instance.clk",
+      "numberFormat": "binary",
+      "colorIndex": 0,
+      "renderType": "binary"
+    },
+    {
+      "netlistId": 208,
+      "name": "gpu.cores[0].core_instance.threads[0].pc_instance.next_pc",
+      "numberFormat": "hexadecimal",
+      "colorIndex": 0,
+      "renderType": "multiBit"
+    },
+    {
+      "netlistId": 167,
+      "name": "gpu.cores[0].core_instance.threads[0].alu_instance.rs",
+      "numberFormat": "hexadecimal",
+      "colorIndex": 0,
+      "renderType": "multiBit"
+    },
+    {
+      "netlistId": 168,
+      "name": "gpu.cores[0].core_instance.threads[0].alu_instance.rt",
+      "numberFormat": "hexadecimal",
+      "colorIndex": 0,
+      "renderType": "multiBit"
+    },
+    {
+      "netlistId": 290,
+      "name": "gpu.cores[0].core_instance.threads[1].pc_instance.next_pc",
+      "numberFormat": "hexadecimal",
+      "colorIndex": 0,
+      "renderType": "multiBit"
+    },
+    {
+      "netlistId": 249,
+      "name": "gpu.cores[0].core_instance.threads[1].alu_instance.rs",
+      "numberFormat": "hexadecimal",
+      "colorIndex": 0,
+      "renderType": "multiBit"
+    },
+    {
+      "netlistId": 250,
+      "name": "gpu.cores[0].core_instance.threads[1].alu_instance.rt",
+      "numberFormat": "hexadecimal",
+      "colorIndex": 0,
+      "renderType": "multiBit"
+    },
+    {
+      "netlistId": 372,
+      "name": "gpu.cores[0].core_instance.threads[2].pc_instance.next_pc",
+      "numberFormat": "hexadecimal",
+      "colorIndex": 0,
+      "renderType": "multiBit"
+    },
+    {
+      "netlistId": 331,
+      "name": "gpu.cores[0].core_instance.threads[2].alu_instance.rs",
+      "numberFormat": "hexadecimal",
+      "colorIndex": 0,
+      "renderType": "multiBit"
+    },
+    {
+      "netlistId": 332,
+      "name": "gpu.cores[0].core_instance.threads[2].alu_instance.rt",
+      "numberFormat": "hexadecimal",
+      "colorIndex": 0,
+      "renderType": "multiBit"
+    },
+    {
+      "netlistId": 454,
+      "name": "gpu.cores[0].core_instance.threads[3].pc_instance.next_pc",
+      "numberFormat": "hexadecimal",
+      "colorIndex": 0,
+      "renderType": "multiBit"
+    },
+    {
+      "netlistId": 413,
+      "name": "gpu.cores[0].core_instance.threads[3].alu_instance.rs",
+      "numberFormat": "hexadecimal",
+      "colorIndex": 0,
+      "renderType": "multiBit"
+    },
+    {
+      "netlistId": 414,
+      "name": "gpu.cores[0].core_instance.threads[3].alu_instance.rt",
+      "numberFormat": "hexadecimal",
+      "colorIndex": 0,
+      "renderType": "multiBit"
+    },
+    {
+      "netlistId": 116,
+      "name": "gpu.cores[0].core_instance.mask",
+      "numberFormat": "binary",
+      "colorIndex": 0,
+      "renderType": "multiBit"
+    },
+    {
+      "netlistId": 95,
+      "name": "gpu.cores[0].core_instance.sv2v_tmp_scheduler_instance_current_pc",
+      "numberFormat": "hexadecimal",
+      "colorIndex": 0,
+      "renderType": "multiBit"
+    },
+    {
+      "netlistId": 124,
+      "name": "gpu.cores[0].core_instance.current_pc",
+      "numberFormat": "hexadecimal",
+      "colorIndex": 0,
+      "renderType": "multiBit"
+    },
+    {
+      "netlistId": 543,
+      "name": "gpu.cores[0].core_instance.scheduler_instance.min_next_pc",
+      "numberFormat": "hexadecimal",
+      "colorIndex": 0,
+      "renderType": "multiBit"
+    },
+    {
+      "netlistId": 164,
+      "name": "gpu.cores[0].core_instance.threads[0].alu_instance.decoded_alu_output_mux",
+      "numberFormat": "binary",
+      "colorIndex": 0,
+      "renderType": "binary"
+    },
+    {
+      "netlistId": 173,
+      "name": "gpu.cores[0].core_instance.threads[0].alu_instance.alu_out_reg",
+      "numberFormat": "hexadecimal",
+      "colorIndex": 0,
+      "renderType": "multiBit"
+    }
+  ]
+}

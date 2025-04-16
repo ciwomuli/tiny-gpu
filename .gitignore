@@ -5,6 +5,8 @@ test/logs/*
 gds/**/*.gltf
 test/assembler/*
 !test/assembler/assembler.py
+*.vcd
+TD/
 
 .DS_Store
 results.xml

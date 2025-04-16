@@ -1,3 +1,4 @@
+import argparse
 import re
 
 # Instruction set encoding table
@@ -111,7 +112,12 @@ def assemble(input_file, output_file):
         outfile.write("]\n")
 
 if __name__ == "__main__":
-    input_file = "program.asm"  # Input assembly file
-    output_file = "program.py"  # Output Python file
-    assemble(input_file, output_file)
-    print(f"Assembly completed, output file: {output_file}")
+    # 使用 argparse 解析命令行参数
+    parser = argparse.ArgumentParser(description="Assemble an assembly file into a Python binary instruction array.")
+    parser.add_argument("input_file", help="Path to the input assembly file.")
+    parser.add_argument("output_file", help="Path to the output Python file.")
+    args = parser.parse_args()
+
+    # 调用 assemble 函数
+    assemble(args.input_file, args.output_file)
+    print(f"Assembly completed, output file: {args.output_file}")

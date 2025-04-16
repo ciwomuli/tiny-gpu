@@ -31,6 +31,7 @@ module scheduler #(
     // Current & Next PC
     output reg [7:0] current_pc,
     input reg [7:0] next_pc[THREADS_PER_BLOCK-1:0],
+    output reg [THREADS_PER_BLOCK-1:0] mask,
 
     // Execution State
     output reg [2:0] core_state,
@@ -44,12 +45,14 @@ module scheduler #(
     EXECUTE = 3'b101,  // Execute ALU and PC calculations
     UPDATE = 3'b110,  // Update registers, NZP, and PC
     DONE = 3'b111;  // Done executing this block
+    reg [7:0] min_next_pc;
 
     always @(posedge clk) begin
         if (reset) begin
             current_pc <= 0;
             core_state <= IDLE;
             done <= 0;
+            mask <= {THREADS_PER_BLOCK{1'b1}};
         end else begin
             case (core_state)
                 IDLE: begin
@@ -100,8 +103,17 @@ module scheduler #(
                         core_state <= DONE;
                     end else begin
                         // TODO: Branch divergence. For now assume all next_pc converge
-                        current_pc <= next_pc[THREADS_PER_BLOCK-1];
-
+                        min_next_pc = next_pc[0];
+                        for (int i = 1; i < THREADS_PER_BLOCK; i++) begin
+                            if (next_pc[i] < min_next_pc) begin
+                                min_next_pc = next_pc[i];
+                            end
+                        end
+                        current_pc <= min_next_pc;
+                        for (int i = 0; i < THREADS_PER_BLOCK; i++) begin
+                            mask[i] = (next_pc[i] == min_next_pc);
+                        end
+                        current_pc <= min_next_pc;
                         // Update is synchronous so we move on after one cycle
                         core_state <= FETCH;
                     end

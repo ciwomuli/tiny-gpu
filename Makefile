@@ -19,6 +19,9 @@ compile:
 compile_%:
 	sv2v -w build/$*.v src/$*.sv
 
+yosys:
+	make compile
+	yosys -s synthesize.ys
 # TODO: Get gtkwave visualizaiton
 
 show_%: %.vcd %.gtkw

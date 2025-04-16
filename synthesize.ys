@@ -1,0 +1,5 @@
+read_verilog build/gpu.v
+hierarchy -top gpu
+synth -top gpu
+stat
+write_verilog build/gpu_netlist.v
